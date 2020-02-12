@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Recipe from "./Recipe";
+import Recipe from "./Recipe.jsx";
 
 const App = () => {
   const APP_ID = "e8756faa";
@@ -16,7 +16,7 @@ const App = () => {
     const response = await fetch(
       `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
-    const data = response.json();
+    const data = await response.json();
 
     setRecipes(data.hits);
   };
